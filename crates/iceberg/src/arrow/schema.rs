@@ -843,12 +843,12 @@ pub(crate) mod builder {
     /// compile-time when types are determined dynamically (e.g. based on some column type).
     /// A [DataType] is given at construction time which is used to later downcast the inner array
     /// and provided values.
-    pub(crate) struct AnyArrayBuilder {
+    pub(crate) struct AnyPrimitiveArrayBuilder {
         data_type: DataType,
         inner: Box<dyn ArrayBuilder>,
     }
 
-    impl AnyArrayBuilder {
+    impl AnyPrimitiveArrayBuilder {
         pub(crate) fn new(data_type: &DataType) -> Self {
             Self {
                 data_type: data_type.clone(),
